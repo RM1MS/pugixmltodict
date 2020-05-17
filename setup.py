@@ -38,5 +38,6 @@ setup(
         'Topic :: Text Processing :: Markup :: XML',
     ],
     setup_requires=['cython>=0.24.1'],
+    install_requires=['cython>=0.24.1'],
     ext_modules=EXT_MODULES,
 )
