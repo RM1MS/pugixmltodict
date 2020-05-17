@@ -1,14 +1,8 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
 import sys
 from distutils.core import setup, Extension
 
-
-USE_CYTHON = False
-CYTHON_PARAM = '--cython'
-if CYTHON_PARAM in sys.argv:
-    USE_CYTHON = True
-    sys.argv.remove(CYTHON_PARAM)
-
+USE_CYTHON = True
 
 SOURCE_EXT = '.pyx' if USE_CYTHON else '.cpp'
 EXT_MODULES = [Extension(
@@ -38,9 +32,11 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Cython',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: Implementation :: CPython",
         'Topic :: Text Processing :: Markup :: XML',
     ],
-
+    setup_requires=['cython>=0.24.1'],
     ext_modules=EXT_MODULES,
 )
